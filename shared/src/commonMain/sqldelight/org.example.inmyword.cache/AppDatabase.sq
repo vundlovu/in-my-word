@@ -1,0 +1,61 @@
+import kotlin.time.Instant;
+
+
+CREATE TABLE User (
+    id INTEGER NOT NULL,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL
+);
+
+insertUser:
+INSERT INTO User(id, name, email)
+VALUES (?,?,?);
+
+selectAllUsers:
+SELECT User.*
+FROM User;
+
+removeAllUsers:
+DELETE FROM User;
+
+
+
+CREATE TABLE BibleBook(
+    id INTEGER NOT NULL,
+    book_name TEXT NOT NULL,
+    book_chapters INTEGER NOT NULL
+);
+
+insertBibleBook:
+INSERT INTO BibleBook(id, book_name, book_chapters)
+VALUES (?,?,?);
+
+removeAllBibleBooks:
+DELETE FROM BibleBook;
+
+selectAllBibleBooks:
+SELECT BibleBook.*
+FROM BibleBook;
+
+
+
+
+
+
+CREATE TABLE UserProgress(
+    id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    bible_book_id INTEGER NOT NULL,
+    bible_chapter INTEGER NOT NULL,
+    completed TEXT AS Instant NOT NULL
+);
+insertUserProgress:
+INSERT INTO UserProgress(id, user_id, bible_book_id, bible_chapter,completed)
+VALUES (?, ?,?,?,?);
+
+removeAllUserProgress:
+DELETE FROM UserProgress;
+
+selectAllUserProgress:
+SELECT UserProgress.*
+FROM UserProgress;
